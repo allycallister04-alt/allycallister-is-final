@@ -9,143 +9,128 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Your scratch CSS -->
-  <link rel="stylesheet" href="scratch.css" />
+  <!-- Your custom scratch stylesheet -->
+  <link rel="stylesheet" href="scratch.css">
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <h1 class="site-header-h1">Scratch Page</h1>
-      <nav class="header-nav">
-        <a href="index.html">Back to Professional Page</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="page">
-    <!-- Table of contents links -->
-    <nav class="toc">
-      <a href="#lists">Lists</a> |
-      <a href="#hobby">My Hobby</a> |
-      <a href="#video">Video</a> |
-      <a href="#game">Game</a> |
-      <a href="#tableau">Tableau</a>
+<header class="site-header">
+  <div class="header-inner">
+    <h1 class="site-header-h1">Scratch Page</h1>
+    <nav class="header-nav">
+      <a href="index.html">Back to Professional Page</a>
     </nav>
+  </div>
+</header>
 
-    <!-- Lists section -->
-    <section id="lists">
-      <h2>Lists (unordered inside ordered)</h2>
-      <ol>
-        <li>Step one
-          <ul>
-            <li>Sub item A</li>
-            <li>Sub item B</li>
-          </ul>
-        </li>
-        <li>Step two</li>
-      </ol>
-    </section>
+<main class="page">
 
-    <!-- Hobby section -->
-    <section id="hobby">
-      <h2>My hobby</h2>
-      <img src="images/hobby1.jpg" alt="Me doing my hobby" />
-      <p>Short description about the hobby.</p>
-    </section>
+  <!-- Table of contents -->
+  <nav class="toc">
+    <a href="#lists">Lists</a> |
+    <a href="#hobby">Hobby</a> |
+    <a href="#video">YouTube</a> |
+    <a href="#game">Game</a>
+  </nav>
 
-    <!-- YouTube video section -->
-    <section id="video">
-      <h2>Embedded YouTube</h2>
-      <div class="video-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/ZaFidshdVrU"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </section>
+  <!-- Lists section -->
+  <section id="lists">
+    <h2>Lists (unordered inside ordered)</h2>
+    <ol>
+      <li>Step one
+        <ul>
+          <li>Sub item A</li>
+          <li>Sub item B</li>
+        </ul>
+      </li>
+      <li>Step two</li>
+    </ol>
+  </section>
 
-    <!-- Number guessing game section -->
-    <section id="game">
-      <h2>Number Guessing Game</h2>
-      <p>Think of a number between 1 and 100 and the page will guess it.</p>
+  <!-- Hobby section -->
+  <section id="hobby">
+    <h2>My Hobby</h2>
+    <img src="images/hobby1.jpg" alt="Me doing my hobby">
+    <p>Short description about the hobby.</p>
+  </section>
 
-      <button id="start">Start Game</button>
+  <!-- YouTube video section -->
+  <section id="video">
+    <h2>Embedded YouTube</h2>
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/ZaFidshdVrU"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
 
-      <div id="controls" style="display:none;">
-        <p id="guessText"></p>
-        <button id="higher">Higher</button>
-        <button id="lower">Lower</button>
-        <button id="correct">Correct</button>
-      </div>
+  <!-- GAME SECTION (working version) -->
+  <section id="game">
+    <h2>Number Guessing Game</h2>
+    <p>Think of a number between 1 and 100 and the page will guess it.</p>
 
-      <p id="status"></p>
-    </section>
+    <button id="start">Start Game</button>
 
-    <!-- Number guessing game script -->
-    <script>
-      // Number guessing game
-      (function () {
-        const start = document.getElementById('start');
-        const controls = document.getElementById('controls');
-        const guessText = document.getElementById('guessText');
-        const status = document.getElementById('status');
-        let low = 1, high = 100, guess;
+    <div id="controls" style="display:none;">
+      <p id="guessText"></p>
+      <button id="higher">Higher</button>
+      <button id="lower">Lower</button>
+      <button id="correct">Correct</button>
+    </div>
 
-        function makeGuess() {
-          guess = Math.floor((low + high) / 2);
-          guessText.textContent = `Is it ${guess}?`;
-          status.textContent = `Range: ${low} - ${high}`;
-        }
+    <p id="status"></p>
+  </section>
 
-        start.addEventListener('click', () => {
-          low = 1;
-          high = 100;
-          controls.style.display = 'block';
-          makeGuess();
-        });
+  <!-- GAME SCRIPT (working version) -->
+  <script>
+    // Number guessing game
+    (function () {
+      const start = document.getElementById('start');
+      const controls = document.getElementById('controls');
+      const guessText = document.getElementById('guessText');
+      const status = document.getElementById('status');
+      let low = 1, high = 100, guess;
 
-        document.getElementById('higher').addEventListener('click', () => {
-          low = guess + 1;
-          makeGuess();
-        });
+      function makeGuess() {
+        guess = Math.floor((low + high) / 2);
+        guessText.textContent = `Is it ${guess}?`;
+        status.textContent = `Range: ${low} - ${high}`;
+      }
 
-        document.getElementById('lower').addEventListener('click', () => {
-          high = guess - 1;
-          makeGuess();
-        });
+      start.addEventListener('click', () => {
+        low = 1;
+        high = 100;
+        controls.style.display = 'block';
+        makeGuess();
+      });
 
-        document.getElementById('correct').addEventListener('click', () => {
-          status.textContent = `Yay! I guessed ${guess}.`;
-          controls.style.display = 'none';
-        });
-      })();
-    </script>
+      document.getElementById('higher').addEventListener('click', () => {
+        low = guess + 1;
+        makeGuess();
+      });
 
-    <!-- Tableau section -->
-    <section id="tableau">
-      <h2>Tableau (embed or substitute)</h2>
-      <p>
-        If you have a Tableau Public viz, paste its iframe below. Otherwise, explain here that you created an interactive JS feature instead.
-      </p>
+      document.getElementById('lower').addEventListener('click', () => {
+        high = guess - 1;
+        makeGuess();
+      });
 
-      <div class="video-wrap">
-        <iframe
-          src="https://public.tableau.com/views/SurfingDashboard/Dashboard1?:showVizHome=no&:embed=true"
-          width="100%"
-          height="600"
-          frameborder="0"
-          style="border-radius: 12px; border: none;"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </section>
-  </main>
+      document.getElementById('correct').addEventListener('click', () => {
+        status.textContent = `Yay! I guessed ${guess}.`;
+        controls.style.display = 'none';
+      });
+    })();
+  </script>
 
-  <footer class="site-footer">
-    <p>© Ally</p>
-  </footer>
+</main>
+
+<footer class="site-footer">
+  <p>© Ally</p>
+</footer>
+
 </body>
 </html>
