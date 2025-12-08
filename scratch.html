@@ -63,17 +63,50 @@
     </section>
 
     <section id="game">
-      <h2>Number Guessing Game</h2>
-      <p>Think of a number between 1 and 100 and the page will guess it.</p>
-      <button id="start">Start Game</button>
-      <div id="controls" style="display:none;">
-        <p id="guessText"></p>
-        <button id="higher">Higher</button>
-        <button id="lower">Lower</button>
-        <button id="correct">Correct</button>
-      </div>
-      <p id="status"></p>
-    </section>
+      </section>
+
+<script>
+// Number guessing game
+(function(){
+  const start = document.getElementById('start');
+  const controls = document.getElementById('controls');
+  const guessText = document.getElementById('guessText');
+  const status = document.getElementById('status');
+  let low = 1, high = 100, guess;
+
+  function makeGuess() {
+    guess = Math.floor((low + high) / 2);
+    guessText.textContent = `Is it ${guess}?`;
+    status.textContent = `Range: ${low} - ${high}`;
+  }
+
+  start.addEventListener('click', () => {
+    low = 1;
+    high = 100;
+    controls.style.display = 'block';
+    makeGuess();
+  });
+
+  document.getElementById('higher').addEventListener('click', () => {
+    low = guess + 1;
+    makeGuess();
+  });
+
+  document.getElementById('lower').addEventListener('click', () => {
+    high = guess - 1;
+    makeGuess();
+  });
+
+  document.getElementById('correct').addEventListener('click', () => {
+    status.textContent = `Yay! I guessed ${guess}.`;
+    controls.style.display = 'none';
+  });
+})();
+</script>
+
+</body>
+</html>
+
 
  <section id="tableau">
   <h2>Tableau (embed or substitute)</h2>
