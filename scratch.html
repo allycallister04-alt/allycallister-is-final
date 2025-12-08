@@ -5,28 +5,32 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Scratch Page — Ally Callister</title>
 
-  <!-- Google Font: Poppins -->
+  <!-- Google Font: Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Your custom CSS -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style-scratch.css">
 </head>
 <body>
-  <header class="header-hero">
-    <h1>Scratch Page</h1>
-    <nav><a href="index.html">Back to Professional Page</a></nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>Scratch Page</h1>
+      <nav class="header-nav">
+        <a href="index.html">Back to Professional Page</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-  <nav>
-    <a href="#lists">Lists</a>
-    <a href="#hobby">My Hobby</a>
-    <a href="#video">Video</a>
-    <a href="#game">Game</a>
-    <a href="#tableau">Tableau</a>
-  </nav>
+  <main class="page">
+    <nav class="toc">
+      <a href="#lists">Lists</a>
+      <a href="#hobby">My Hobby</a>
+      <a href="#video">Video</a>
+      <a href="#game">Game</a>
+      <a href="#tableau">Tableau</a>
+    </nav>
 
     <section id="lists">
       <h2>Lists (unordered inside ordered)</h2>
@@ -48,15 +52,16 @@
     </section>
 
     <section id="video">
-  <h2>Embedded YouTube</h2>
-  <div class="video-wrap">
-    <iframe width="560" height="315"
-      src="https://www.youtube.com/embed/ZaFidshdVrU"
-      title="YouTube video player" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
-  </div>
-</section>
+      <h2>Embedded YouTube</h2>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/ZaFidshdVrU"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </section>
 
     <section id="game">
       <h2>Number Guessing Game</h2>
@@ -73,19 +78,19 @@
 
     <section id="tableau">
       <h2>Tableau (embed or substitute)</h2>
-      <p>If you have a Tableau Public viz, paste its iframe here. If not, describe that you substituted a JS chart.</p>
-      <!-- Placeholder iframe example -->
-      <iframe src="https://public.tableau.com/views/YOUR_VIZ/Sheet1?:showVizHome=no&:embed=true" width="800" height="600"></iframe>
+      <p>If you have a Tableau Public viz, paste its iframe below. Otherwise, explain here that you created an interactive JS feature instead.</p>
+      <iframe
+        src="https://public.tableau.com/views/YOUR_VIZ/Sheet1?:showVizHome=no&:embed=true"
+        title="Tableau visualization"></iframe>
     </section>
-
   </main>
 
-  <footer>
-    <p>© Ally</p>
+  <footer class="site-footer">
+    © Ally
   </footer>
 
   <script>
-    // Single-page JS for the number guessing game
+    // Number guessing game
     (function(){
       const start = document.getElementById('start');
       const controls = document.getElementById('controls');
@@ -106,11 +111,15 @@
       });
 
       document.getElementById('higher').addEventListener('click', () => {
-        low = guess + 1; makeGuess();
+        low = guess + 1;
+        makeGuess();
       });
+
       document.getElementById('lower').addEventListener('click', () => {
-        high = guess - 1; makeGuess();
+        high = guess - 1;
+        makeGuess();
       });
+
       document.getElementById('correct').addEventListener('click', () => {
         status.textContent = `Yay! I guessed ${guess}.`;
         controls.style.display = 'none';
