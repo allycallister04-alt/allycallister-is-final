@@ -174,13 +174,15 @@ button:active {
 /* ===== Beach Photos Layout ===== */
 .beach-photos {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 12px;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .beach-photos img {
-  max-width: 300px;
+  width: 250px;         /* You can make these 200px or 300px if you want */
+  height: 250px;        /* Forces them all the same size */
+  object-fit: cover;    /* Makes the crop look clean */
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
