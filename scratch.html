@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scratch Page — Ally Callister</title>
+  <link rel="stylesheet" href="css/style-scratch.css">
+</head>
+<body>
+  <header class="header-hero">
+    <h1>Scratch Page</h1>
+    <nav><a href="index.html">Back to Professional Page</a></nav>
+  </header>
+
+  <main>
+    <nav aria-label="Table of contents">
+      <a href="#lists">Lists</a> |
+      <a href="#hobby">My Hobby</a> |
+      <a href="#video">Video</a> |
+      <a href="#game">Game</a> |
+      <a href="#tableau">Tableau</a>
+    </nav>
+
+    <section id="lists">
+      <h2>Lists (unordered inside ordered)</h2>
+      <ol>
+        <li>Step one
+          <ul>
+            <li>Sub item A</li>
+            <li>Sub item B</li>
+          </ul>
+        </li>
+        <li>Step two</li>
+      </ol>
+    </section>
+
+    <section id="hobby">
+      <h2>My hobby</h2>
+      <img src="images/hobby1.jpg" alt="Me doing my hobby">
+      <p>Short description about the hobby.</p>
+    </section>
+
+    <section id="video">
+      <h2>Embedded YouTube</h2>
+      <div class="video-wrap">
+        <!-- replace VIDEO_ID with the real id later -->
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/VIDEO_ID"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="game">
+      <h2>Number Guessing Game</h2>
+      <p>Think of a number between 1 and 100 and the page will guess it.</p>
+      <button id="start">Start Game</button>
+      <div id="controls" style="display:none;">
+        <p id="guessText"></p>
+        <button id="higher">Higher</button>
+        <button id="lower">Lower</button>
+        <button id="correct">Correct</button>
+      </div>
+      <p id="status"></p>
+    </section>
+
+    <section id="tableau">
+      <h2>Tableau (embed or substitute)</h2>
+      <p>If you have a Tableau Public viz, paste its iframe here. If not, describe that you substituted a JS chart.</p>
+      <!-- Placeholder iframe example -->
+      <iframe src="https://public.tableau.com/views/YOUR_VIZ/Sheet1?:showVizHome=no&:embed=true" width="800" height="600"></iframe>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© Ally</p>
+  </footer>
+
+  <script>
+    // Single-page JS for the number guessing game
+    (function(){
+      const start = document.getElementById('start');
+      const controls = document.getElementById('controls');
+      const guessText = document.getElementById('guessText');
+      const status = document.getElementById('status');
+      let low = 1, high = 100, guess;
+
+      function makeGuess() {
+        guess = Math.floor((low + high) / 2);
+        guessText.textContent = `Is it ${guess}?`;
+        status.textContent = `Range: ${low} - ${high}`;
+      }
+
+      start.addEventListener('click', () => {
+        low = 1; high = 100;
+        controls.style.display = 'block';
+        makeGuess();
+      });
+
+      document.getElementById('higher').addEventListener('click', () => {
+        low = guess + 1; makeGuess();
+      });
+      document.getElementById('lower').addEventListener('click', () => {
+        high = guess - 1; makeGuess();
+      });
+      document.getElementById('correct').addEventListener('click', () => {
+        status.textContent = `Yay! I guessed ${guess}.`;
+        controls.style.display = 'none';
+      });
+    })();
+  </script>
+</body>
+</html>
