@@ -12,64 +12,65 @@
   <!-- Your custom scratch stylesheet -->
   <link rel="stylesheet" href="css/style-scratch.css">
 </head>
-
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <h1 class="site-header-h1">Scratch Page</h1>
-    <nav class="header-nav">
-      <a href="index.html">Back to Professional Page</a>
-    </nav>
-  </div>
-</header>
-
-<main class="page">
-
-  <!-- Table of contents -->
-  <nav class="toc">
-  <a href="#lists">Lists</a> |
-  <a href="#hobby">Hobby</a> |
-  <a href="#video">YouTube</a> |
-  <a href="#game">Game</a> |
-  <a href="#tableau">Tableau</a>
-</nav>
-
-  <!-- Lists section -->
-  <section id="lists">
-    <h2>Lists (unordered inside ordered)</h2>
-    <ol>
-      <li>Step one
-        <ul>
-          <li>Sub item A</li>
-          <li>Sub item B</li>
-        </ul>
-      </li>
-      <li>Step two</li>
-    </ol>
-  </section>
-
-  <!-- Hobby section -->
-  <section id="hobby">
-    <h2>My Hobby</h2>
-    <img src="images/hobby1.jpg" alt="Me doing my hobby">
-    <p>Short description about the hobby.</p>
-  </section>
-
-  <!-- YouTube video section -->
-  <section id="video">
-    <h2>Embedded YouTube</h2>
-    <div class="video-wrap">
-      <iframe
-        src="https://www.youtube.com/embed/ZaFidshdVrU"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-header-h1">Scratch Page</h1>
+      <nav class="header-nav">
+        <a href="index.html">Back to Professional Page</a>
+      </nav>
     </div>
-  </section>
-    <!-- GAME SECTION (working version) -->
+  </header>
+
+  <main class="page">
+
+    <!-- ===== Table of contents ===== -->
+    <nav class="toc">
+      <a href="#lists">Lists</a> |
+      <a href="#hobby">Hobby</a> |
+      <a href="#video">YouTube</a> |
+      <a href="#game">Game</a> |
+      <a href="#tableau">Tableau</a>
+    </nav>
+
+    <!-- ===== Lists section ===== -->
+    <section id="lists">
+      <h2>Lists (unordered inside ordered)</h2>
+      <ol>
+        <li>Step one
+          <ul>
+            <li>Sub item A</li>
+            <li>Sub item B</li>
+          </ul>
+        </li>
+        <li>Step two</li>
+      </ol>
+    </section>
+
+    <!-- ===== Hobby section ===== -->
+    <section id="hobby">
+      <h2>My Hobby</h2>
+      <img src="images/hobby1.jpg" alt="Me doing my hobby">
+      <p>Short description about the hobby.</p>
+    </section>
+
+    <!-- ===== YouTube video section ===== -->
+    <section id="video">
+      <h2>Embedded YouTube</h2>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/ZaFidshdVrU"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- ===== GAME SECTION ===== -->
     <section id="game">
       <h2>Number Guessing Game</h2>
       <p>Think of a number between 1 and 100 and the page will guess it.</p>
@@ -86,50 +87,12 @@
       <p id="status"></p>
     </section>
 
-      <!-- GAME SCRIPT (working version) -->
-    <script>
-      // Number guessing game
-      (function () {
-        const start = document.getElementById('start');
-        const controls = document.getElementById('controls');
-        const guessText = document.getElementById('guessText');
-        const status = document.getElementById('status');
-        let low = 1, high = 100, guess;
-
-        function makeGuess() {
-          guess = Math.floor((low + high) / 2);
-          guessText.textContent = `Is it ${guess}?`;
-          status.textContent = `Range: ${low} – ${high}`;
-        }
-
-        start.addEventListener('click', () => {
-          low = 1;
-          high = 100;
-          controls.style.display = 'block';
-          makeGuess();
-        });
-
-        document.getElementById('higher').addEventListener('click', () => {
-          low = guess + 1;
-          makeGuess();
-        });
-
-        document.getElementById('lower').addEventListener('click', () => {
-          high = guess - 1;
-          makeGuess();
-        });
-
-        document.getElementById('correct').addEventListener('click', () => {
-          status.textContent = `Yay! I guessed ${guess}.`;
-          controls.style.display = 'none';
-        });
-      })();
-    </script>
-
-    <!-- Tableau section -->
+    <!-- ===== Tableau section ===== -->
     <section id="tableau">
       <h2>Tableau (embed or substitute)</h2>
-      <p>If you have a Tableau Public viz, paste its iframe below. Otherwise, explain here that you created an interactive JS feature instead.</p>
+      <p>
+        If you have a Tableau Public viz, paste its iframe below. Otherwise, explain here that you created an interactive JS feature instead.
+      </p>
 
       <div class="video-wrap">
         <iframe
@@ -143,9 +106,53 @@
       </div>
     </section>
 
-    <footer class="site-footer">
-      <p>© Ally</p>
-    </footer>
   </main>
+
+  <footer class="site-footer">
+    <p>© Ally</p>
+  </footer>
+
+  <!-- ===== Number guessing game script ===== -->
+  <script>
+    (function () {
+      const start = document.getElementById('start');
+      const controls = document.getElementById('controls');
+      const guessText = document.getElementById('guessText');
+      const status = document.getElementById('status');
+
+      let low = 1;
+      let high = 100;
+      let guess;
+
+      function makeGuess() {
+        guess = Math.floor((low + high) / 2);
+        guessText.textContent = `Is it ${guess}?`;
+        status.textContent = `Range: ${low} – ${high}`;
+      }
+
+      start.addEventListener('click', () => {
+        low = 1;
+        high = 100;
+        controls.style.display = 'block';
+        makeGuess();
+      });
+
+      document.getElementById('higher').addEventListener('click', () => {
+        low = guess + 1;
+        makeGuess();
+      });
+
+      document.getElementById('lower').addEventListener('click', () => {
+        high = guess - 1;
+        makeGuess();
+      });
+
+      document.getElementById('correct').addEventListener('click', () => {
+        status.textContent = `Yay! I guessed ${guess}.`;
+        controls.style.display = 'none';
+      });
+    })();
+  </script>
+
 </body>
 </html>
