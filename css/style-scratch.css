@@ -1,98 +1,103 @@
-/* ------- Global Styles ------- */
+/* ------ Global / base ------ */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #f5f5f7;           /* softer neutral */
-  color: #111827;
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #e9f2f7;            /* soft, beachy sky */
+  color: #0f172a;
 }
 
-/* ------- Header ------- */
-.header-hero {
-  background: linear-gradient(90deg, #0f4c75, #00a8e8); /* ocean-y blue gradient */
+/* ------ Header ------ */
+.site-header {
+  background: linear-gradient(135deg, #0369a1, #0ea5e9); /* ocean gradient */
   color: white;
-  padding: 40px 20px;
-  text-align: center;
+  padding: 24px 0;
 }
 
-.header-hero h1 {
+.header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header h1 {
   margin: 0;
-  font-size: 2.4rem;
+  font-size: 2.1rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
 }
 
-.header-hero nav a {
-  display: inline-block;
-  margin-top: 10px;
+.header-nav a {
   color: #e0f2fe;
-  font-size: 0.95rem;
   text-decoration: none;
+  font-size: 0.95rem;
 }
 
-.header-hero nav a:hover {
+.header-nav a:hover {
   text-decoration: underline;
 }
 
-/* ------- Main Content Layout ------- */
-main {
-  max-width: 860px;
+/* ------ Main card layout ------ */
+.page {
+  max-width: 900px;
   margin: 32px auto;
-  padding: 28px 24px 40px;
-  background: white;
-  border-radius: 14px;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  padding: 28px 24px 36px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
 }
 
 /* Table of contents links */
-main > nav {
-  margin-bottom: 24px;
+.toc {
   text-align: center;
+  margin-bottom: 26px;
 }
 
-main > nav a {
+.toc a {
   margin: 0 10px;
-  color: #0f4c75;
+  color: #0369a1;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
 }
 
-main > nav a:hover {
+.toc a:hover {
   text-decoration: underline;
 }
 
-/* ------- Sections ------- */
+/* ------ Sections ------ */
 section {
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 h2 {
-  margin-top: 0;
-  font-size: 1.5rem;
+  margin: 0 0 14px;
+  font-size: 1.6rem;
   font-weight: 700;
-  color: #111827;
+  color: #0f172a;
+  border-bottom: 3px solid #0ea5e9;
   display: inline-block;
-  border-bottom: 3px solid #0f4c75;
   padding-bottom: 4px;
 }
 
-/* ------- Hobby Image ------- */
+/* Hobby image */
 #hobby img {
   max-width: 100%;
-  border-radius: 10px;
-  margin: 12px 0;
+  border-radius: 12px;
+  margin: 10px 0;
   display: block;
 }
 
-/* ------- YouTube Video ------- */
+/* YouTube video */
 .video-wrap {
+  margin-top: 16px;
   display: flex;
   justify-content: center;
-  margin-top: 18px;
 }
 
 .video-wrap iframe {
@@ -102,42 +107,43 @@ h2 {
   border: none;
 }
 
-/* ------- Number Guessing Game ------- */
+/* Number guessing game */
 #game button {
-  background-color: #0f4c75;
-  color: white;
+  background-color: #0369a1;
+  color: #f9fafb;
   border: none;
   padding: 8px 16px;
   margin-right: 6px;
   margin-top: 6px;
-  border-radius: 6px;
+  border-radius: 999px;
   cursor: pointer;
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 #game button:hover {
-  background-color: #0b3957;
+  background-color: #0b5a86;
 }
 
 #status {
   margin-top: 10px;
   font-style: italic;
-  color: #4b5563;
+  color: #475569;
 }
 
-/* ------- Tableau Section ------- */
+/* Tableau */
 #tableau iframe {
   width: 100%;
   height: 430px;
+  border-radius: 12px;
   border: none;
-  border-radius: 10px;
+  margin-top: 12px;
 }
 
-/* ------- Footer ------- */
-footer {
+/* Footer */
+.site-footer {
   text-align: center;
-  padding: 24px;
-  color: #6b7280;
+  padding: 22px;
   font-size: 0.85rem;
-  margin-top: 32px;
+  color: #64748b;
 }
