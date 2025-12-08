@@ -171,3 +171,16 @@ button:active {
   font-size: 0.85rem;
   color: #0f172a;
 }
+/* ===== Beach Photos Layout ===== */
+.beach-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.beach-photos img {
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
