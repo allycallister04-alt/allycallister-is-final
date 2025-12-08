@@ -1,46 +1,22 @@
-/* ------ Global / base ------ */
+/* ---------- Global / base ---------- */
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #d7f1f7;            /* soft, beachy sky */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #d7f1ff;           /* soft ocean blue */
   color: #0f172a;
 }
 
-/* ------ Header ------ */
+/* ---------- Header ---------- */
+
 .site-header {
-  background: linear-gradient(135deg, #0284c7, #0ea5e9); /* smoother ocean gradient */
-  padding: 30px 20px 24px;
-  text-align: center;
+  background: linear-gradient(135deg, #0369a1, #0ea5e9); /* ocean gradient */
   color: white;
-  border-bottom: 3px solid rgba(255,255,255,0.2);
-}
-
-.site-header h1 {
-  margin: 0;
-  font-size: 2.4rem;
-  font-weight: 700;
-}
-
-.site-header .tagline {
-  margin-top: 6px;
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-.header-nav a {
-  margin-top: 12px;
-  display: inline-block;
-  color: #e0faff;
-  font-size: 0.95rem;
-  text-decoration: none;
-}
-
-.header-nav a:hover {
-  text-decoration: underline;
+  padding: 24px 0;
 }
 
 .header-inner {
@@ -52,9 +28,9 @@ body {
   align-items: center;
 }
 
-.site-header h1 {
+.site-header-h1 {
   margin: 0;
-  font-size: 2.1rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
@@ -68,115 +44,130 @@ body {
   text-decoration: underline;
 }
 
-/* ------ Main card layout ------ */
+/* ---------- Main card layout ---------- */
+
 .page {
   max-width: 900px;
   margin: 32px auto;
-  padding: 28px 24px 36px;
+  padding: 24px 28px 36px;
   background: #ffffff;
-  border-radius: 22px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
 }
 
-/* Table of contents links */
+/* TOC links */
+
 .toc {
   text-align: center;
   margin-bottom: 26px;
+  font-size: 0.95rem;
 }
 
 .toc a {
-  margin: 0 10px;
   color: #0369a1;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
+  margin: 0 4px;
 }
 
 .toc a:hover {
   text-decoration: underline;
 }
 
-/* ------ Sections ------ */
+/* ---------- Section styling ---------- */
+
 section {
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 h2 {
-  margin: 0 0 14px;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #0f172a;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
   border-bottom: 3px solid #0ea5e9;
   display: inline-block;
   padding-bottom: 4px;
 }
 
+p {
+  line-height: 1.5;
+}
+
+/* Lists */
+#lists ol {
+  padding-left: 1.25rem;
+}
+
+#lists ul {
+  padding-left: 1.25rem;
+}
+
 /* Hobby image */
+
 #hobby img {
   max-width: 100%;
   border-radius: 12px;
-  margin: 10px 0;
-  display: block;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+  margin-bottom: 8px;
 }
 
-/* YouTube video */
+/* ---------- Video & Tableau wrappers ---------- */
+
 .video-wrap {
-  width: 100%;
-  margin-top: 16px;
-}
-
-.video-wrap iframe {
-  width: 100%;
-  height: 500px;
-  border-radius: 12px;
-  border: none;
-  display: block;
-}
-
-.video-wrap iframe {
-  width: 100%;
-  max-width: 720px;
-  border-radius: 12px;
-  border: none;
-}
-
-/* Number guessing game */
-#game button {
-  background-color: #0369a1;
-  color: #f9fafb;
-  border: none;
-  padding: 8px 16px;
-  margin-right: 6px;
-  margin-top: 6px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-#game button:hover {
-  background-color: #0b5a86;
-}
-
-#status {
-  margin-top: 10px;
-  font-style: italic;
-  color: #475569;
-}
-
-/* Tableau */
-#tableau iframe {
-  width: 100%;
-  height: 430px;
-  border-radius: 12px;
-  border: none;
+  position: relative;
+  max-width: 100%;
   margin-top: 12px;
 }
 
+.video-wrap iframe {
+  width: 100%;
+  height: 360px;
+  border-radius: 12px;
+  border: none;
+}
+
+/* Tableau section shares the same frame styling */
+#tableau .video-wrap iframe {
+  height: 500px;
+}
+
+/* ---------- Buttons (game) ---------- */
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #0284c7;
+  color: white;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+  transition: background 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  background: #0369a1;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.4);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25);
+}
+
+/* Game text */
+
+#game #guessText,
+#game #status {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
 /* Footer */
+
 .site-footer {
   text-align: center;
-  padding: 22px;
+  padding: 16px 0 24px;
   font-size: 0.85rem;
-  color: #64748b;
+  color: #0f172a;
 }
