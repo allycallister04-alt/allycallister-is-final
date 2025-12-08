@@ -1,0 +1,32 @@
+/* style-scratch.css */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #222;
+  background-color: #f7f9fc;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+.header-hero {
+  background-color: #1f6feb;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+
+.video-wrap {
+  max-width: 720px;
+  margin: 0 auto 1rem;
+}
+
+/* at least 4 styles and font color + font family are present above */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: .5rem;
+}
+
+nav a { color: #f2b705; text-decoration: none; }
+nav a:focus, nav a:hover { text-decoration: underline; }
