@@ -7,14 +7,14 @@
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #d7f1ff;           /* soft ocean blue */
+  background: #e8f1e4; /* soft sage green */
   color: #0f172a;
 }
 
 /* ---------- Header ---------- */
 
 .site-header {
-  background: linear-gradient(135deg, #0369a1, #0ea5e9); /* ocean gradient */
+ background: linear-gradient(135deg, #cddfc4, #7a9365); /* sage + forest */
   color: white;
   padding: 24px 0;
 }
