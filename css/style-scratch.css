@@ -186,3 +186,32 @@ button:active {
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
+/* --- Ally's Green Theme --- */
+
+/* Soft green background for body */
+body {
+    background: #e8f3e6 !important; /* mint / soft sage */
+    color: #0f1f1a;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Navigation bar (sage/forest tone) */
+.site-header {
+    background: #6f8f72 !important;  /* sage green */
+    color: white !important;
+}
+
+.site-header a {
+    color: #eaf7ec !important;  /* soft light green */
+}
+
+.site-header a:hover {
+    color: white !important;
+    text-decoration: underline;
+}
+
+/* Hero banner gradient */
+.hero {
+    background: linear-gradient(135deg, #bfdac2, #9fc8a8) !important;
+    color: white;
+}
